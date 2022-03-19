@@ -1,10 +1,18 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const container = styled.div`
   align-items:center;
   justify-content:space-around;
   border:1px solid gray;
   padding:30px;
-  display:flex;
   color:black;
+    
+    .heading_container ,
+    .file_uploader_container,
+    .table_container {
+        display:flex;
+        justify-content:center;
+  }
+
+  
 `;

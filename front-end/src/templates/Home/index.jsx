@@ -6,10 +6,16 @@ import * as Styled from './styles';
 
 export default function Home() {
     return (
-        <Styled.Wrapper>
-            <Heading>Desafio Dev</Heading>
-            <FileUploader/>
-            <Table/>
-        </Styled.Wrapper>    
+        <Styled.container>
+            <div class="heading_container">
+                <Heading>Desafio Dev</Heading>
+            </div>
+            <div class="file_uploader_container">
+                <FileUploader/>
+            </div>
+            <div class="table_container">
+                <Table/>
+            </div>
+        </Styled.container>    
     )
 }
