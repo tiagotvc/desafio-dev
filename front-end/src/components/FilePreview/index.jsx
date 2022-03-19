@@ -1,13 +1,13 @@
 import React from 'react';
 import * as Styled from './styles';
 import { ImageConfig } from '../../config/ImageConfig'; 
-
+import { AiFillCloseCircle } from 'react-icons/ai';
 
 export const FilePreview = (props) => {
     const fileList = props.fileList;
 
     const fileRemove = (item) => {
-        props.onFileChange(item);
+        props.fileRemove(item);
     }
 
     return (
@@ -16,29 +16,24 @@ export const FilePreview = (props) => {
                 fileList.length > 0 ? (
                     <div className="drop-file-preview">
                         <div class="drop-file-preview__title">
-                            <p>
-                                Ready to upload
-                            </p>
+                            <span> Ready to upload</span>
                             <button>Upload</button>
                         </div>
-                        
-                        <div class="drop-file-preview_items">
                         {
                             fileList.map((item, index) => (
                                 <>
                                 <div key={index} className="drop-file-preview__item">
-                                    <img src={ImageConfig[item.type.split('/')[1]] || ImageConfig['default']} alt="" />
-                                    <span className="drop-file-preview__item__del" onClick={() => fileRemove(item)}>x</span>
-                                </div>
-                                <div className="drop-file-preview__item__info">
-                                    <p>{item.name}</p>
+                                    <img src={ImageConfig[item.type.split('/')[1]] || ImageConfig['txt']} alt="" />
+                                    <div className="drop-file-preview__item__info">
+                                        <p>{item.name}</p>
+                                    </div>
+                                    <AiFillCloseCircle class="drop-file-preview__item__del" onClick={() => fileRemove(item)}/>
                                 </div>
                                 
                             </>
                             ))
                         }
-                        </div>
-                        
+                    
                     </div>
                 ) : null
             }
