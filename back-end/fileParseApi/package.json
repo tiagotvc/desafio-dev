@@ -1,0 +1,14 @@
+{
+  "name": "fileparseapi",
+  "version": "1.0.0",
+  "description": "File Parse Api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tiago Carvalho",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
