@@ -6,8 +6,7 @@ export const FileUploader = (props) => {
     return (
         <Styled.Container>
             <label>Choose File</label>
-            <input type="file"></input>
-
+            <input type="file"/>
         </Styled.Container>
     )
 }
