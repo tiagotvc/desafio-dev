@@ -8,7 +8,7 @@ export const container = styled.div`
   color:black;
     
     .heading_container ,
-    .file_uploader_container,
+ 
     .table_container {
         display:flex;
         justify-content:center;

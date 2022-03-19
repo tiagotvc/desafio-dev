@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import * as Styled from './styles';
-import { ImageConfig } from '../../config/ImageConfig'; 
 import uploadImg from '../../assets/cloud-upload-regular-240.png';
+import { FilePreview } from '../FilePreview';
 
 export const FileUploader = (props) => {
 
@@ -18,6 +18,7 @@ export const FileUploader = (props) => {
     const onFileDrop = (e) => {
         const newFile = e.target.files[0];
         if (newFile) {
+            console.log(newFile);
             const updatedList = [...fileList, newFile];
             setFileList(updatedList);
             props.onFileChange(updatedList);
@@ -30,9 +31,11 @@ export const FileUploader = (props) => {
         setFileList(updatedList);
         props.onFileChange(updatedList);
     }
+    
 
     return (
-        <Styled.Container>
+        <>
+        <Styled.ContainerUpload>
             <div class="input_container"
                     ref={wrapperRef}
                     className="drop-file-input"
@@ -46,6 +49,12 @@ export const FileUploader = (props) => {
                 </div>
                 <input type="file" value="" onChange={onFileDrop}/>
             </div>
-        </Styled.Container>
+            
+            
+        </Styled.ContainerUpload>
+        <FilePreview 
+            fileList={fileList}
+            fileRemove={(item) => fileRemove(item)}/>
+        </>
     )
 }

@@ -5,17 +5,23 @@ import { Table } from '../../components/Table';
 import * as Styled from './styles';
 
 export default function Home() {
+
+    const onFileChange = (files) => {
+        console.log(files);
+    }
     return (
         <Styled.container>
             <div class="heading_container">
                 <Heading>Desafio Dev</Heading>
             </div>
             <div class="file_uploader_container">
-                <FileUploader/>
+                <FileUploader
+                    onFileChange={(files) => onFileChange(files)}
+                    />
             </div>
-            <div class="table_container">
+            {/* <div class="table_container">
                 <Table/>
-            </div>
+            </div> */}
         </Styled.container>    
     )
 }
