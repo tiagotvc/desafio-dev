@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import * as Styled from './styles';
 import uploadImg from '../../assets/cloud-upload-regular-240.png';
 import { FilePreview } from '../FilePreview';
+import { filaDataParse } from '../../api/fileParse/index';
 
 export const FileUploader = (props) => {
 
@@ -22,6 +23,7 @@ export const FileUploader = (props) => {
             const updatedList = [...fileList, newFile];
             setFileList(updatedList);
             props.onFileChange(updatedList);
+            filaDataParse(newFile);
         }
     }
 
