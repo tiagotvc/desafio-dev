@@ -12,6 +12,8 @@ export const container = styled.div`
     .table_container {
         display:flex;
         justify-content:center;
+        align-items:center;
+        padding:10px;
   }
 
   

@@ -1,12 +1,51 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import * as Styled from './styles';
+import { ImageConfig } from '../../config/ImageConfig'; 
+import uploadImg from '../../assets/cloud-upload-regular-240.png';
 
 export const FileUploader = (props) => {
 
+    const wrapperRef = useRef(null);
+
+    const [fileList, setFileList] = useState([]);
+
+    const onDragEnter = () => wrapperRef.current.classList.add('dragover');
+
+    const onDragLeave = () => wrapperRef.current.classList.remove('dragover');
+
+    const onDrop = () => wrapperRef.current.classList.remove('dragover');
+
+    const onFileDrop = (e) => {
+        const newFile = e.target.files[0];
+        if (newFile) {
+            const updatedList = [...fileList, newFile];
+            setFileList(updatedList);
+            props.onFileChange(updatedList);
+        }
+    }
+
+    const fileRemove = (file) => {
+        const updatedList = [...fileList];
+        updatedList.splice(fileList.indexOf(file), 1);
+        setFileList(updatedList);
+        props.onFileChange(updatedList);
+    }
+
     return (
         <Styled.Container>
-            <label>Choose File</label>
-            <input type="file"/>
+            <div class="input_container"
+                    ref={wrapperRef}
+                    className="drop-file-input"
+                    onDragEnter={onDragEnter}
+                    onDragLeave={onDragLeave}
+                    onDrop={onDrop}
+            >
+                <div class="drop-file-input__label">
+                    <img src={uploadImg} alt="" />
+                    <p>Drag & Drop your files here</p>
+                </div>
+                <input type="file" value="" onChange={onFileDrop}/>
+            </div>
         </Styled.Container>
     )
 }
