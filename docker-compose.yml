@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mysql_server:
+    image: mysql
+    container_name: dbc-mysql
+    restart: always
+    ports:
+      - 3306:3306
+    command: --default-authentication-plugin=mysql_native_password
+    environment: 
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: "desafio_dev"
+    networks:
+      - desafio-dev
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080  
+    networks:
+      - desafio-dev
+  upload_api:
+    build: 
+      context: ./back-end/fileParseApi
+      dockerfile: Dockerfile
+    ports: 
+      - 3001:3001
+    volumes: 
+      - .:/usr/src
+      - '/app/node_modules'
+    depends_on: 
+      - mysql_server
+    networks:
+      - desafio-dev
+networks:
+  desafio-dev:
+    driver: bridge
+    
