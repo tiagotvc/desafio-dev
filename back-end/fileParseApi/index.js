@@ -4,6 +4,11 @@ const fileParserRoute = require('./routes/fileParseRoute');
 const bodyParser = require('body-parser');
 const app = express();
 
+const db = require("./models/index");
+db.sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+  });
+
 const corsOptions = {
     origin: '*',
     optionSucessStatus: 200
