@@ -1,8 +1,16 @@
 version: "3.8"
 
 services:
+  react-app:
+    build:
+      context: ./front-end
+    stdin_open: true
+    ports: 
+      - "3000:3000"
+    networks:
+      - desafio-dev
   mysql_server:
-    image: mysql
+    image: mysql:8.0.28
     container_name: dbc-mysql
     restart: always
     ports:
@@ -27,8 +35,7 @@ services:
     ports: 
       - 3001:3001
     volumes: 
-      - .:/usr/src
-      - '/app/node_modules'
+      - .:/usr/srca
     depends_on: 
       - mysql_server
     networks:
