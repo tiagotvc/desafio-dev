@@ -1,14 +1,16 @@
 import React, { useRef, useState } from 'react';
 import * as Styled from './styles';
 import uploadImg from '../../assets/cloud-upload-regular-240.png';
-import { FilePreview } from '../FilePreview';
-import { filaDataParse } from '../../api/fileParse/index';
+import { fileDataParse } from '../../api/fileParse/index';
 
 export const FileUploader = (props) => {
+    const [message, setMessage] = useState('');
+
+    const [isLoading, setIsLoading] = useState(false);
 
     const wrapperRef = useRef(null);
 
-    const [fileList, setFileList] = useState([]);
+    const [fileCount, setFileCount] = useState(10);
 
     const onDragEnter = () => wrapperRef.current.classList.add('dragover');
 
@@ -16,47 +18,50 @@ export const FileUploader = (props) => {
 
     const onDrop = () => wrapperRef.current.classList.remove('dragover');
 
-    const onFileDrop = (e) => {
+    const onFileDrop = async (e) => {
         const newFile = e.target.files[0];
         if (newFile) {
-            console.log(newFile);
-            const updatedList = [...fileList, newFile];
-            setFileList(updatedList);
-            props.onFileChange(updatedList);
-            filaDataParse(newFile);
+            setMessage('Loading.........');
+            setIsLoading(true);
+            const response = await fileDataParse(newFile);  
+            if (response){
+                const add = fileCount + 1;
+                setFileCount(add);
+                props.onFileChange(fileCount);
+            } 
+            setMessage('') 
         }
     }
-
-    const fileRemove = (file) => {
-        const updatedList = [...fileList];
-        updatedList.splice(fileList.indexOf(file), 1);
-        setFileList(updatedList);
-        props.onFileChange(updatedList);
-    }
     
-
     return (
-        <>
+      <>
         <Styled.ContainerUpload>
-            <div class="input_container"
-                    ref={wrapperRef}
-                    className="drop-file-input"
-                    onDragEnter={onDragEnter}
-                    onDragLeave={onDragLeave}
-                    onDrop={onDrop}
-            >
-                <div class="drop-file-input__label">
-                    <img src={uploadImg} alt="" />
-                    <p>Drag & Drop your files here</p>
+            <div className="align_divs_center">
+                <div class="input_container"
+                        ref={wrapperRef}
+                        className="drop-file-input"
+                        onDragEnter={onDragEnter}
+                        onDragLeave={onDragLeave}
+                        onDrop={onDrop}
+                >
+                    <div class="drop-file-input__label">
+                        <img src={uploadImg} alt="" />
+                        <p>Drag & Drop your files here</p>
+                    </div>
+                    <input type="file" value="" onChange={onFileDrop}/>
                 </div>
-                <input type="file" value="" onChange={onFileDrop}/>
             </div>
-            
-            
+            {isLoading?
+                <div className="align_divs_center">
+                    <span>{message}</span>
+                </div>
+            :
+            <></>
+
+            }
         </Styled.ContainerUpload>
-        <FilePreview 
-            fileList={fileList}
-            fileRemove={(item) => fileRemove(item)}/>
         </>
     )
 }
+
+export default FileUploader;
