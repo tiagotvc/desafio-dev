@@ -1,9 +1,23 @@
 import styled from 'styled-components';
 
 export const ContainerUpload = styled.div`
-    display:flex;
+    display:block;
     align-items: center ;
     justify-content:center ;
+
+    .align_divs_center {
+        display:flex;
+        align-items: center ;
+        justify-content:center ;
+
+        > span {
+            margin-top:20px;
+        }
+
+        > button {
+            margin-top:40px;
+        }
+    }
 
     .input_container {
         display:flex ;
@@ -55,66 +69,3 @@ export const ContainerUpload = styled.div`
 
     
 `
-
-
-export const ContainerPreview = styled.div`
-    display:flex;
-    align-items: center ;
-    justify-content:center ;display:block;
-
-    .drop-file-preview {
-        margin-top: 10px;
-        display: block ;
-    }
-
-    .drop-file-preview__title {
-        display:flex;
-        align-items: center ;
-        justify-content:center ;
-    }
-
-    .drop-file-preview_items {
-        display:flex ;
-        justify-content:center ;
-        align-items:center ;
-    }
-
-    .drop-file-preview p {
-        font-weight: 100;
-        font-size: 13px ;
-    }
-
-    .drop-file-preview__item {
-        display:flex ;
-        align-items: center ;
-        justify-content: center ;
-        
-}
-
-    .drop-file-preview__item img {
-        height:40px ;
-        
-    }
-
-    .drop-file-preview__item__info {
-      justify-content:center ;
-      align-items:center ;
-      text-align:center ;
-     
-    }
-
-    .drop-file-preview__item__del {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        margin-left:350px;
-        position: absolute;
-        cursor: pointer;
-        
-    }
-
-    .drop-file-preview__item:hover .drop-file-preview__item__del {
-        opacity: 1;
-    }
-    `
