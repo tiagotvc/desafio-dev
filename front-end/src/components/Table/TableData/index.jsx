@@ -1,29 +1,29 @@
-
 import React from 'react';
-import { mock } from './data-mock';
+import * as _ from 'lodash';
 
 const TableTr = (props) => {
     const objData = Object.values(props.data);
         return (
-            <tr>
-                {objData.map((values) => {
+            <tr id={props.index}>
+                {objData.map((values, index) => {
                     return (
-                        <td>{values}</td>
+                        <td key={index}>{values}</td>
                     )
                 })}
             </tr>
         )
-}
+ }
 
-export const TableData = () => {
+export const TableData = (props) => {
     return (
         <tbody>
-            {mock.map((data) =>  {
-                return (
-                    <TableTr data={data}/>
-                )
-            }           
-        )}
+            {!_.isEmpty(props.tableData) &&
+                props.tableData.map((data, index) =>  {
+                    return (
+                        <TableTr data={data} index={index}/>
+                    )
+                })
+            }   
         </tbody>
     )
 }
