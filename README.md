@@ -1,4 +1,4 @@
-# Desafio SearchApp
+# Desafio Dev
 
 
 ## Iniciando o projeto
@@ -12,31 +12,33 @@
 
 ```
 
-# ENDPOINTS
+## ENDPOINTS
 
-## [Sending File [POST]]
+### [Sending File [POST]]
 
 ```
+      *Needs to send a txt file called file in FormData .
+      *Will parse all data to database.
       http://localhost:3001/api/fileParse
-      Needs to send a txt file called file in FormData .
-      Will parse all data to database.
+      
 
 
 ```    
-## [Load Data (Get)] 
+### [Load Data (Get)] 
       
 ```
-    http://localhost:3001/api/loadParsedData,
-    Load all parsed data from database
+    *Load all parsed data from database
+    http://localhost:3001/api/loadParsedData
+    
 
 ```
 
-## [Unit Tests]
+### [Unit Tests]
 
 ```
     In front end just run npm test inside front-end folder
     In back end need to upload some file before, after just run npm test inside
-     back-end/fileParseApi folder
+    back-end/fileParseApi folder
 
 
 ```
