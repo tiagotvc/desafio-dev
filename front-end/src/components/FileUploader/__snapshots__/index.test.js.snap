@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FileUploader  renders correctly 1`] = `
+.c0 {
+  display: block;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 .align_divs_center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 .align_divs_center > span {
+  margin-top: 20px;
+}
+
+.c0 .align_divs_center > button {
+  margin-top: 40px;
+}
+
+.c0 .input_container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 .upload_preview_container {
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c0 .drop-file-input {
+  position: relative;
+  width: 280px;
+  height: 140px;
+  border: 2px dashed black;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.c0 .drop-file-input input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.c0 .drop-file-input:hover,
+.c0 .drop-file-input.dragover {
+  opacity: 0.6;
+}
+
+.c0 .drop-file-input__label {
+  text-align: center;
+  color: gray;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.c0 .drop-file-input__label img {
+  width: 100px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="align_divs_center"
+  >
+    <div
+      class="input_container"
+      className="drop-file-input"
+      onDragEnter={[Function]}
+      onDragLeave={[Function]}
+      onDrop={[Function]}
+    >
+      <div
+        class="drop-file-input__label"
+      >
+        <img
+          alt=""
+          src="cloud-upload-regular-240.png"
+        />
+        <p>
+          Drag & Drop your files here
+        </p>
+      </div>
+      <input
+        onChange={[Function]}
+        type="file"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
