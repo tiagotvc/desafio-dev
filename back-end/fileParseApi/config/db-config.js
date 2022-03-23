@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "localhost",
+    HOST: "dbc-mysql",
     USER: "root",
     PASSWORD: "docker",
     DB: "desafio_dev",
